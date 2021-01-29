@@ -19,6 +19,7 @@ function App(props: AppType) {
     return (
         <BrowserRouter>
             <div className="App-wrapper">
+                <h1>sc</h1>
                 <Header/>
                 <NavBar/>
                 <div className="App-wrapper-content">
