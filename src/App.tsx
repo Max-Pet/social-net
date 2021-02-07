@@ -7,7 +7,6 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Route} from 'react-router-dom';
 import {StateType} from "./redux/state";
 
-
 type AppType = {
     state: StateType
     dispatch: (action: any) => void
@@ -19,7 +18,6 @@ function App(props: AppType) {
     const messages = state.dialogsPage.messages
     const posts = state.profilePage.posts
     const newPostText = state.profilePage.newPostText
-
     return (
         <BrowserRouter>
             <div className="App-wrapper">
@@ -37,5 +35,4 @@ function App(props: AppType) {
         </BrowserRouter>
     );
 };
-
 export default App;

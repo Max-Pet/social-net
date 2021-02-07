@@ -25,22 +25,20 @@ export type StateType = {
 }
 export type StoreType = {
     _state: StateType
-    /*updateNewPostText: (newText: string) => void*/
-    /*addPost: (postMessage: string) => void*/
     _rerender: () => void
     subscribe: (observer: () => void) => void
     getState: () => StateType
-    dispatch: (action: ActionsType)=> void
+    dispatch: (action: ActionsType) => void
 }
-type AddPostActionType ={
-    type:'ADD-POST'
+type AddPostActionType = {
+    type: 'ADD-POST'
 }
 type UpdateNewPostTextType = {
-    type:'Update-NEW-POST-TEXT'
-    newText:string
+    type: 'Update-NEW-POST-TEXT'
+    newText: string
 }
 
-export type ActionsType = AddPostActionType|UpdateNewPostTextType
+export type ActionsType = AddPostActionType | UpdateNewPostTextType
 export let store: StoreType = {
     _state: {
         profilePage: {
@@ -78,7 +76,6 @@ export let store: StoreType = {
     },
 
 
-
     dispatch(action) {
         if (action.type === 'ADD-POST') {
             let newPost: PostType = {
@@ -89,7 +86,9 @@ export let store: StoreType = {
             this._state.profilePage.posts.push(newPost)
             this._state.profilePage.newPostText = ''
             this._rerender()
+        } else if (action.type === 'Update-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText = action.newText
+            this._rerender()
         }
-        else if (action.type === 'Update-NEW-POST-TEXT'){this._state.profilePage.newPostText = action.newText
-            this._rerender()}}
+    }
 }

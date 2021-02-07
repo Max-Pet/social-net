@@ -3,7 +3,6 @@ import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import {PostType} from "../../redux/state";
 
-
 type ProfilePropsType = {
     posts: Array<PostType>,
     newPostText: string,
@@ -11,7 +10,6 @@ type ProfilePropsType = {
 }
 
 function Profile(props: ProfilePropsType) {
-
     return (
         <div>
             <ProfileInfo/>
