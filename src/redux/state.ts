@@ -1,3 +1,6 @@
+const UPDATE_NEW_POST_TEXT = 'Update-NEW-POST-TEXT';
+const ADD_POST = 'ADD-POST';
+
 export type MessageType = {
     id: number,
     message: string,
@@ -77,7 +80,7 @@ export let store: StoreType = {
 
 
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost: PostType = {
                 id: 5,
                 post: this._state.profilePage.newPostText,
@@ -86,9 +89,24 @@ export let store: StoreType = {
             this._state.profilePage.posts.push(newPost)
             this._state.profilePage.newPostText = ''
             this._rerender()
-        } else if (action.type === 'Update-NEW-POST-TEXT') {
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newText
             this._rerender()
         }
+    }
+}
+
+
+export let addPostActionCreator = ():ActionsType => {
+
+    return{
+        type: ADD_POST
+    }
+}
+
+export let updateNewPostTextCreator = (text:string):ActionsType => {
+
+    return{
+        type: UPDATE_NEW_POST_TEXT, newText: text
     }
 }
